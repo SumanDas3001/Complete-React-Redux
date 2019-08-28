@@ -17,7 +17,6 @@ class App extends Component {
     this.setState({
       test: tests
     })
-    // console.log(test);
   }
   
   render(){
