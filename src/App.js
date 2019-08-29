@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Test from './Test';
 import AddTest from './AddTest';
 
-class App extends Component {
+class App extends React.Component {
   state = {
     test: [
       {name: "suman", age: 13, about: "nothing", id:1},
@@ -13,16 +13,26 @@ class App extends Component {
 
   testAdd = (testValue) => {
     testValue.id = Math.random();
-    let tests = [...this.state.test, testValue]
+    let tests = [...this.state.test, testValue];
     this.setState({
       test: tests
     })
+  }
+
+  deleteTest = (id) => {
+    let testData = this.state.test.filter( testData => {
+      return testData.id !== id;
+    });
+    this.setState({
+      test: testData
+    })
+    // console.log(id);
   }
   
   render(){
     return (
       <div className="App">
-        <Test test={this.state.test}/>
+        <Test deleteTest={this.deleteTest} test={this.state.test}/>
         <AddTest testAdd={this.testAdd} />
       </div>
     );

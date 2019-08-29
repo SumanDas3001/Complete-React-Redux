@@ -1,6 +1,7 @@
 import React from 'react';
+import './Test.css'
 
-const Test = ({test}) => {
+const Test = ({test, deleteTest}) => {
 // const Test = (props) => {
 	// const {test} = props;
 	// const testList = test.map(test => {
@@ -23,6 +24,7 @@ const Test = ({test}) => {
 				<div>Name: {test.name}</div>
 				<div>Age: {test.age}</div>
 				<div>About: {test.about}</div>
+				<button onClick={() => {deleteTest(test.id)}}>Delete Test</button>
 			</div>
 		) : null;
 	})
